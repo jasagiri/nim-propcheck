@@ -1,0 +1,6 @@
+schema_version = "1.0.0"
+adr_dir = "docs/adr"
+aar_dir = "docs/aar"
+template_dir = "templates"
+repo_id = "PCK"
+categories = ["design", "process", "communication", "technical", "planning", "other"]
