@@ -1,7 +1,7 @@
 .PHONY: test spec-coverage clean
 
-# The G1 tool lives in nimtype and takes the repository root as its argument.
-SPEC_COVERAGE_SRC := ../nimtype/tests/tools/spec_coverage.nim
+# The G1 tool lives in nim-typeset and takes the repository root as its argument.
+SPEC_COVERAGE_SRC := ../nim-typeset/tests/tools/spec_coverage.nim
 
 test:
 	@mkdir -p bin/tests
