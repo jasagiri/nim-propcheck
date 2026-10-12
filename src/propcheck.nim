@@ -224,20 +224,28 @@ proc check*[T](gen: Gen[T]; property: Property[T]; config = DefaultConfig): Chec
 
 proc distinguish*[T, R](gen: Gen[T]; first, second: proc(x: T): R {.raises: [CatchableError].};
                         config = DefaultConfig): CheckResult[T] {.raises: [ValueError].} =
-  ## Looks for a value on which `first` and `second` give different
-  ## results. Passing means none was found.
+  ## Looks for a value on which `first` and `second` do different things.
+  ## Raising is one of the things a function can do: two that raise the same
+  ## error, with the same message, on a value do not differ on it. Passing
+  ## means no such value was found.
   mixin `$`, `==`
   let verdict: Verdict[T] = proc(x: T): string {.raises: [].} =
+    # What each raised, as "Type: message"; empty when it returned.
     var a, b: R
+    var raisedA, raisedB = ""
     try:
       a = first(x)
     except CatchableError as e:
-      return "the first raised " & $e.name & ": " & e.msg
+      raisedA = $e.name & ": " & e.msg
     try:
       b = second(x)
     except CatchableError as e:
-      return "the second raised " & $e.name & ": " & e.msg
-    if a == b: "" else: "the first gave " & $a & ", the second " & $b
+      raisedB = $e.name & ": " & e.msg
+    if raisedA.len == 0 and raisedB.len == 0:
+      return if a == b: "" else: "the first gave " & $a & ", the second " & $b
+    if raisedA == raisedB: return ""
+    "the first " & (if raisedA.len > 0: "raised " & raisedA else: "gave " & $a) &
+      ", the second " & (if raisedB.len > 0: "raised " & raisedB else: "gave " & $b)
   checkBy(gen, verdict, config)
 
 proc describe*[T](outcome: CheckResult[T]): string {.raises: [].} =

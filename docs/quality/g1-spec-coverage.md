@@ -23,8 +23,9 @@ and every `# SPEC: ID` tag under `tests/**`. Do not hand-edit -- re-run
 | SHR-05 | tests/external/test_propcheck.nim (1) |
 | RPT-01 | tests/external/test_propcheck.nim (1) |
 | DIF-01 | tests/external/test_propcheck.nim (1) |
+| DIF-02 | tests/external/test_propcheck.nim (3) |
 
-Declared: 16  Covered: 16  Uncovered: 0
+Declared: 17  Covered: 17  Uncovered: 0
 
 ## Uncovered declared IDs
 

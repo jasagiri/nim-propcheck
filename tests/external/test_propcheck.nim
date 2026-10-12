@@ -213,3 +213,46 @@ suite "reporting, and telling two implementations apart":
     check outcome.counterexample.value == -1
     check "-1" in outcome.counterexample.reason      # what each gave
     check distinguish(intIn(0, 1000), shifted, divided).passed
+
+  # SPEC: DIF-02
+  test "Given two functions that raise the same error on the same inputs, When told apart, Then it passes":
+    proc checked(x: int): int {.raises: [CatchableError].} =
+      if x < 0: raise newException(ValueError, "negative")
+      x * 2
+    proc extracted(x: int): int {.raises: [CatchableError].} =
+      if x < 0: raise newException(ValueError, "negative")
+      x + x
+    check distinguish(intIn(-1000, 1000), checked, extracted).passed
+
+  # SPEC: DIF-02
+  test "Given one function that raises where the other returns, When told apart, Then the smallest such input is the counterexample and the reason names what each did":
+    proc checked(x: int): int {.raises: [CatchableError].} =
+      if x >= 5: raise newException(ValueError, "five or more")
+      x
+    proc unchecked(x: int): int {.raises: [CatchableError].} = x
+    let outcome = distinguish(intIn(0, 1000), checked, unchecked)
+    check not outcome.passed
+    check outcome.counterexample.value == 5
+    check "ValueError" in outcome.counterexample.reason
+    check "five or more" in outcome.counterexample.reason
+    check "gave 5" in outcome.counterexample.reason
+    let swapped = distinguish(intIn(0, 1000), unchecked, checked)
+    check swapped.counterexample.value == 5
+    check "five or more" in swapped.counterexample.reason
+
+  # SPEC: DIF-02
+  test "Given two functions that raise errors of another type or with another message, When told apart, Then they differ":
+    proc valueError(x: int): int {.raises: [CatchableError].} =
+      raise newException(ValueError, "bad")
+    proc keyError(x: int): int {.raises: [CatchableError].} =
+      raise newException(KeyError, "bad")
+    proc otherMessage(x: int): int {.raises: [CatchableError].} =
+      raise newException(ValueError, "worse")
+    let byType = distinguish(intIn(0, 9), valueError, keyError)
+    check not byType.passed
+    check "ValueError" in byType.counterexample.reason
+    check "KeyError" in byType.counterexample.reason
+    let byMessage = distinguish(intIn(0, 9), valueError, otherMessage)
+    check not byMessage.passed
+    check "bad" in byMessage.counterexample.reason
+    check "worse" in byMessage.counterexample.reason
