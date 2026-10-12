@@ -1,0 +1,26 @@
+{
+  "sources": [
+    "src/propcheck.nim"
+  ],
+  "buildCommand": "nim c --hints:off -o:bin/tests/test_propcheck_g2 tests/external/test_propcheck.nim",
+  "testCommand": "./bin/tests/test_propcheck_g2",
+  "testOutput": "unittest",
+  "mutators": [
+    "AOR",
+    "ROR",
+    "LOR",
+    "BLR",
+    "SDL",
+    "RVR",
+    "LBR",
+    "CVR",
+    "AIR"
+  ],
+  "parallelism": 2,
+  "reports": [
+    "console",
+    "json"
+  ],
+  "outputDir": ".nim-muter/propcheck",
+  "incremental": false
+}

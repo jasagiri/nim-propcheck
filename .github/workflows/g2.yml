@@ -1,0 +1,21 @@
+# G2（変異検出）。コミット単位で kura の裏の待ち行列に回す
+# （kuratsugi-repository ADR-KURA-0021）。
+#
+#     kuratsugi workflow-enqueue --file g2.yml --repo <このリポジトリ>
+#
+# ジョブは tests/mutation/<名前>.json と 1 対 1。生き残った変異の扱いは
+# docs/quality/g2-*.md に書く。
+
+name: g2
+
+on: push
+
+jobs:
+  propcheck:
+    steps:
+      - name: nim-muter propcheck
+        run: |
+          status=0
+          ../nim-muter/bin/nim-muter run --config tests/mutation/propcheck.json || status=$?
+          cp .nim-muter/propcheck/report.json "$KURATSUGI_RESULT_DIR/propcheck.report.json" || exit 1
+          exit $status
