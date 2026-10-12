@@ -363,3 +363,13 @@ suite "what the first mutation run left standing (2026-10-12)":
         inc neededAnotherRound
     check neededAnotherRound > 0
 
+  # SPEC: GEN-06
+  test "Given small ranges, lopsided ones among them, When many values are made, Then every value of the range turns up, both ends included":
+    for (lo, hi) in [(-10, 3), (-3, 10), (0, 7), (-7, 0), (5, 9), (-9, -5), (-4, 4)]:
+      var seen: set[int8]
+      for x in samples(intIn(lo, hi), 3000):
+        seen.incl int8(x)
+      for wanted in lo .. hi:
+        checkpoint $lo & " .. " & $hi & " lacks " & $wanted
+        check int8(wanted) in seen
+

@@ -8,6 +8,7 @@ and every `# SPEC: ID` tag under `tests/**`. Do not hand-edit -- re-run
 | ID | test files (count) |
 |---|---|
 | GEN-01 | tests/external/test_propcheck.nim (6) |
+| GEN-06 | tests/external/test_propcheck.nim (1) |
 | GEN-02 | tests/external/test_propcheck.nim (3) |
 | GEN-03 | tests/external/test_propcheck.nim (3) |
 | GEN-04 | tests/external/test_propcheck.nim (1) |
@@ -25,7 +26,7 @@ and every `# SPEC: ID` tag under `tests/**`. Do not hand-edit -- re-run
 | DIF-01 | tests/external/test_propcheck.nim (1) |
 | DIF-02 | tests/external/test_propcheck.nim (3) |
 
-Declared: 17  Covered: 17  Uncovered: 0
+Declared: 18  Covered: 18  Uncovered: 0
 
 ## Uncovered declared IDs
 

@@ -7,8 +7,8 @@
       "mutator": "CVR",
       "original": "100",
       "replacement": "101",
-      "class": "spec_question",
-      "reason": "既定の試行回数 100。どの仕様 ID も既定値を定めていない。仕様にするか。"
+      "class": "accepted",
+      "reason": "利用者が 2026-10-12 に「仕様として定めない」と決めた。既定の試行回数 100。どの仕様 ID も既定値を定めていない。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:79170c51acd78593:0",
@@ -17,8 +17,8 @@
       "mutator": "CVR",
       "original": "2000",
       "replacement": "2001",
-      "class": "spec_question",
-      "reason": "既定の縮小の上限 2000。どの仕様 ID も既定値を定めていない。仕様にするか。"
+      "class": "accepted",
+      "reason": "利用者が 2026-10-12 に「仕様として定めない」と決めた。既定の縮小の上限 2000。どの仕様 ID も既定値を定めていない。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:b69fc67799197c25:0",
@@ -27,8 +27,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "spec_question",
-      "reason": "既定の種 0。README は「種は既定で固定 (0)」と述べるが、仕様 ID が無い。仕様にするか。"
+      "class": "accepted",
+      "reason": "利用者が 2026-10-12 に「仕様として定めない」と決めた。既定の種 0。README は「種は既定で固定 (0)」と述べるが、仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:bb875c27bbe4b0f3:0",
@@ -37,8 +37,8 @@
       "mutator": "CVR",
       "original": "15",
       "replacement": "16",
-      "class": "spec_question",
-      "reason": "「4 回に 1 回は単純な値の近くを引く」の幅 15。値の分布を定める仕様 ID が無い。"
+      "class": "accepted",
+      "reason": "利用者が 2026-10-12 に「仕様として定めない」と決めた。「4 回に 1 回は単純な値の近くを引く」の幅 15。値の分布を定める仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:a0d4e70a04f2bfb5:0",
@@ -157,8 +157,8 @@
       "mutator": "CVR",
       "original": "3",
       "replacement": "4",
-      "class": "spec_question",
-      "reason": "単純な値の近くを引く割合 (4 回に 1 回)。値の分布を定める仕様 ID が無い。"
+      "class": "accepted",
+      "reason": "利用者が 2026-10-12 に「仕様として定めない」と決めた。単純な値の近くを引く割合 (4 回に 1 回)。値の分布を定める仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:290467414678cf11:0",
@@ -167,8 +167,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "spec_question",
-      "reason": "86 行 24 桁と同じ (どの引きで近くを選ぶか)。分布を定める仕様 ID が無い。"
+      "class": "accepted",
+      "reason": "利用者が 2026-10-12 に「仕様として定めない」と決めた。86 行 24 桁と同じ (どの引きで近くを選ぶか)。分布を定める仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:b8e8dd5aa349973d:0",
@@ -177,8 +177,8 @@
       "mutator": "ROR",
       "original": "d.drawUpTo(3) == 0",
       "replacement": "<== -> !=>",
-      "class": "spec_question",
-      "reason": "近くを引くのを 4 回に 1 回から 4 回に 3 回にする。最も単純な値は変わらない。分布を定める仕様 ID が無い。"
+      "class": "accepted",
+      "reason": "利用者が 2026-10-12 に「仕様として定めない」と決めた。近くを引くのを 4 回に 1 回から 4 回に 3 回にする。最も単純な値は変わらない。分布を定める仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:a5c0b4075e489d08:0",
@@ -247,8 +247,8 @@
       "mutator": "ROR",
       "original": "offset mod 2 == 1",
       "replacement": "<== -> !=>",
-      "class": "spec_question",
-      "reason": "0 の次に +1 と -1 のどちらを先にするか。GEN-01 は最も単純な値しか定めていない。"
+      "class": "accepted",
+      "reason": "利用者が 2026-10-12 に「仕様として定めない」と決めた。0 の次に +1 と -1 のどちらを先にするか。GEN-01 は最も単純な値しか定めていない。"
     },
     {
       "fingerprint": "src/propcheck.nim:AOR:f46d4181bff8252f:0",
@@ -267,8 +267,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "spec_question",
-      "reason": "負の側の長い範囲で、値が 1 つずつずれ、lo がちょうど作られなくなる (範囲の外には出ない)。「範囲のどの値も作れる」は GEN-01 に書かれていない。仕様に足すことを勧める。"
+      "class": "test_owed",
+      "reason": "GEN-06 (2026-10-12 に足した仕様): 負の側が長い範囲で lo がちょうど作られなくなる。E テストを足し、この変異を手で当てて落ちることを確かめた。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:20b5aabb2747bf3e:0",
@@ -287,8 +287,8 @@
       "mutator": "CVR",
       "original": "1",
       "replacement": "2",
-      "class": "spec_question",
-      "reason": "真を引く割合を 1/2 から 1/3 にする。値の分布を定める仕様 ID が無い。"
+      "class": "accepted",
+      "reason": "利用者が 2026-10-12 に「仕様として定めない」と決めた。真を引く割合を 1/2 から 1/3 にする。値の分布を定める仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:39f34e2f2f650575:0",
@@ -307,8 +307,8 @@
       "mutator": "CVR",
       "original": "7",
       "replacement": "8",
-      "class": "spec_question",
-      "reason": "列を続ける割合 (8 回に 7 回)。長さの分布を定める仕様 ID が無い。"
+      "class": "accepted",
+      "reason": "利用者が 2026-10-12 に「仕様として定めない」と決めた。列を続ける割合 (8 回に 7 回)。長さの分布を定める仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:568d24bb63dbb2cb:0",
@@ -377,8 +377,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "spec_question",
-      "reason": "縮小の試行が、上限より 1 回少なくなる。SHR-04 は「上限を超えない」としか定めていない。上限まで使うことを仕様にするか。"
+      "class": "accepted",
+      "reason": "利用者が 2026-10-12 に「仕様として定めない」と決めた。縮小の試行が、上限より 1 回少なくなる。SHR-04 は「上限を超えない」としか定めていない。上限まで使うことを。"
     },
     {
       "fingerprint": "src/propcheck.nim:BLR:b8309a95375a2001:0",
@@ -407,8 +407,8 @@
       "mutator": "CVR",
       "original": "2",
       "replacement": "3",
-      "class": "spec_question",
-      "reason": "まとめて切る引きの数の並び (8・6・4・3・2・1)。探索の調整値で、仕様 ID が無い。"
+      "class": "accepted",
+      "reason": "利用者が 2026-10-12 に「仕様として定めない」と決めた。まとめて切る引きの数の並び (8・6・4・3・2・1)。探索の調整値で、仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:3050ba0a0920ab55:0",
@@ -417,8 +417,8 @@
       "mutator": "CVR",
       "original": "1",
       "replacement": "2",
-      "class": "spec_question",
-      "reason": "まとめて切る引きの数の並び (8・6・4・3・2・1)。探索の調整値で、仕様 ID が無い。"
+      "class": "accepted",
+      "reason": "利用者が 2026-10-12 に「仕様として定めない」と決めた。まとめて切る引きの数の並び (8・6・4・3・2・1)。探索の調整値で、仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:917e0591e6e44969:0",
@@ -427,8 +427,8 @@
       "mutator": "CVR",
       "original": "6",
       "replacement": "7",
-      "class": "spec_question",
-      "reason": "まとめて切る引きの数の並び (8・6・4・3・2・1)。探索の調整値で、仕様 ID が無い。"
+      "class": "accepted",
+      "reason": "利用者が 2026-10-12 に「仕様として定めない」と決めた。まとめて切る引きの数の並び (8・6・4・3・2・1)。探索の調整値で、仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:a2ab535e43cae28d:0",
@@ -437,8 +437,8 @@
       "mutator": "CVR",
       "original": "4",
       "replacement": "5",
-      "class": "spec_question",
-      "reason": "まとめて切る引きの数の並び (8・6・4・3・2・1)。探索の調整値で、仕様 ID が無い。"
+      "class": "accepted",
+      "reason": "利用者が 2026-10-12 に「仕様として定めない」と決めた。まとめて切る引きの数の並び (8・6・4・3・2・1)。探索の調整値で、仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:b24c6bcd535144dd:0",
@@ -447,8 +447,8 @@
       "mutator": "CVR",
       "original": "8",
       "replacement": "9",
-      "class": "spec_question",
-      "reason": "まとめて切る引きの数の並び (8・6・4・3・2・1)。探索の調整値で、仕様 ID が無い。"
+      "class": "accepted",
+      "reason": "利用者が 2026-10-12 に「仕様として定めない」と決めた。まとめて切る引きの数の並び (8・6・4・3・2・1)。探索の調整値で、仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:AOR:1ffca890fdd4b1fb:0",
@@ -507,8 +507,8 @@
       "mutator": "LBR",
       "original": "0 ..< at",
       "replacement": "<..< -> ..>",
-      "class": "spec_question",
-      "reason": "切る範囲が 1 つ後ろにずれ、1 つ少なく切る。どの位置を切るかは探索の進め方で、仕様 ID が無い。"
+      "class": "accepted",
+      "reason": "利用者が 2026-10-12 に「仕様として定めない」と決めた。切る範囲が 1 つ後ろにずれ、1 つ少なく切る。どの位置を切るかは探索の進め方で、仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:BLR:708f2de45b8b53ee:0",
