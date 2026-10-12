@@ -7,8 +7,8 @@
       "mutator": "CVR",
       "original": "100",
       "replacement": "101",
-      "class": "undecided",
-      "reason": ""
+      "class": "spec_question",
+      "reason": "既定の試行回数 100。どの仕様 ID も既定値を定めていない。仕様にするか。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:79170c51acd78593:0",
@@ -17,8 +17,8 @@
       "mutator": "CVR",
       "original": "2000",
       "replacement": "2001",
-      "class": "undecided",
-      "reason": ""
+      "class": "spec_question",
+      "reason": "既定の縮小の上限 2000。どの仕様 ID も既定値を定めていない。仕様にするか。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:b69fc67799197c25:0",
@@ -27,8 +27,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "spec_question",
+      "reason": "既定の種 0。README は「種は既定で固定 (0)」と述べるが、仕様 ID が無い。仕様にするか。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:bb875c27bbe4b0f3:0",
@@ -37,8 +37,8 @@
       "mutator": "CVR",
       "original": "15",
       "replacement": "16",
-      "class": "undecided",
-      "reason": ""
+      "class": "spec_question",
+      "reason": "「4 回に 1 回は単純な値の近くを引く」の幅 15。値の分布を定める仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:a0d4e70a04f2bfb5:0",
@@ -47,8 +47,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "hi >= 1 にしても、違いが出るのは hi = 0 のときで、above はどちらでも 0。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:a0d4e70a04f2bfb5:1",
@@ -57,8 +57,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "lo <= 1 で違いが出るのは lo = 1 のときで、88 行で先に戻るので above を使わない。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:a0d4e70a04f2bfb5:2",
@@ -67,8 +67,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "else の値を使うのは範囲が 0 を含まないときで、88・89 行で先に戻る。"
     },
     {
       "fingerprint": "src/propcheck.nim:LOR:ffa79204f897d2fe:0",
@@ -77,8 +77,8 @@
       "mutator": "LOR",
       "original": "hi >= 0 and lo <= 0",
       "replacement": "<and -> or>",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "or にして真になるのは範囲が 0 を含まないときで、そのときは 88・89 行で先に戻るので above を使わない。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:b0f73d2786c634be:0",
@@ -87,8 +87,8 @@
       "mutator": "ROR",
       "original": "hi >= 0",
       "replacement": "<>= -> >>",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "hi = 0 のとき、条件が真でも偽でも above は 0。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:482408172e89a445:0",
@@ -97,8 +97,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "82 行 21 桁の変異と同じ (hi = 0 のときだけ違い、結果は同じ)。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:482408172e89a445:1",
@@ -107,8 +107,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "lo <= 1 で違いが出るのは lo = 1 のときで、88 行で先に戻る。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:482408172e89a445:3",
@@ -117,8 +117,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "else の値を使うのは範囲が 0 を含まないときで、88・89 行で先に戻る。"
     },
     {
       "fingerprint": "src/propcheck.nim:LOR:1172ca1b7cfdde62:0",
@@ -127,8 +127,8 @@
       "mutator": "LOR",
       "original": "hi >= 0 and lo <= 0",
       "replacement": "<and -> or>",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "or にして真になるのは範囲が 0 を含まないときで、88・89 行で先に戻る。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:5a09ce0d3e34220a:0",
@@ -137,8 +137,8 @@
       "mutator": "ROR",
       "original": "lo <= 0",
       "replacement": "<<= -> <>",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "lo = 0 のとき below はどちらでも 0。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:a1d74adfcebaaba2:0",
@@ -147,8 +147,8 @@
       "mutator": "ROR",
       "original": "hi >= 0",
       "replacement": "<>= -> >>",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "hi = 0 のとき below が 0 になるが、both は 0 のままで、94 行は above > below が偽のままなので同じ値になる。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:0208c75a22b86885:0",
@@ -157,8 +157,8 @@
       "mutator": "CVR",
       "original": "3",
       "replacement": "4",
-      "class": "undecided",
-      "reason": ""
+      "class": "spec_question",
+      "reason": "単純な値の近くを引く割合 (4 回に 1 回)。値の分布を定める仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:290467414678cf11:0",
@@ -167,8 +167,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "spec_question",
+      "reason": "86 行 24 桁と同じ (どの引きで近くを選ぶか)。分布を定める仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:b8e8dd5aa349973d:0",
@@ -177,8 +177,8 @@
       "mutator": "ROR",
       "original": "d.drawUpTo(3) == 0",
       "replacement": "<== -> !=>",
-      "class": "undecided",
-      "reason": ""
+      "class": "spec_question",
+      "reason": "近くを引くのを 4 回に 1 回から 4 回に 3 回にする。最も単純な値は変わらない。分布を定める仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:a5c0b4075e489d08:0",
@@ -187,8 +187,8 @@
       "mutator": "ROR",
       "original": "lo > 0",
       "replacement": "<> -> >=>",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "lo = 0 のとき、lo + offset は、下の経路が返す値 (offset) と同じ。"
     },
     {
       "fingerprint": "src/propcheck.nim:AOR:976c98e3301713f1:0",
@@ -197,8 +197,8 @@
       "mutator": "AOR",
       "original": "cast[uint64](hi) - offset",
       "replacement": "<- -> +>",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "GEN-01: 0 より下だけの範囲で、範囲の外の値ができる。E テストを足し、この変異を手で当てて落ちることを確かめた (2026-10-12)。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:d8484a5a691fa2c1:0",
@@ -207,8 +207,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "hi < 1 は hi <= 0 と同じで、89 行 11 桁の変異と同じ。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:fa6842052c64b614:0",
@@ -217,8 +217,8 @@
       "mutator": "ROR",
       "original": "hi < 0",
       "replacement": "<< -> <=>",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "hi = 0 のとき、hi - offset は、下の経路が返す値 (-offset) と同じ。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:db246f754dd431f7:1",
@@ -227,8 +227,8 @@
       "mutator": "CVR",
       "original": "2",
       "replacement": "3",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "GEN-01: 両側がとても広い範囲で、最も単純な値が 0 でなくなる。E テストを足し、この変異を手で当てて落ちることを確かめた (2026-10-12)。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:fcb80d0569f6b263:0",
@@ -237,8 +237,8 @@
       "mutator": "ROR",
       "original": "both <= high(uint64) div 2",
       "replacement": "<<= -> <>",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "GEN-01: すべての整数の範囲で、最も単純な値が 0 でなくなる。E テストを足し、この変異を手で当てて落ちることを確かめた (2026-10-12)。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:c2fe8ae5631c4ef9:0",
@@ -247,8 +247,8 @@
       "mutator": "ROR",
       "original": "offset mod 2 == 1",
       "replacement": "<== -> !=>",
-      "class": "undecided",
-      "reason": ""
+      "class": "spec_question",
+      "reason": "0 の次に +1 と -1 のどちらを先にするか。GEN-01 は最も単純な値しか定めていない。"
     },
     {
       "fingerprint": "src/propcheck.nim:AOR:f46d4181bff8252f:0",
@@ -257,8 +257,8 @@
       "mutator": "AOR",
       "original": "0'u64 - size",
       "replacement": "<- -> +>",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "GEN-01: 負の側が長い範囲で、範囲の外 (正の側) の値ができる。E テストを足し、この変異を手で当てて落ちることを確かめた (2026-10-12)。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:5bfc6c4bf55566e4:0",
@@ -267,8 +267,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "spec_question",
+      "reason": "負の側の長い範囲で、値が 1 つずつずれ、lo がちょうど作られなくなる (範囲の外には出ない)。「範囲のどの値も作れる」は GEN-01 に書かれていない。仕様に足すことを勧める。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:20b5aabb2747bf3e:0",
@@ -277,8 +277,8 @@
       "mutator": "ROR",
       "original": "above > below",
       "replacement": "<> -> >=>",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "above = below のときは offset が 2 * both を超えないので、この行に来ない。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:268a5dd0a42b6a8e:0",
@@ -287,8 +287,8 @@
       "mutator": "CVR",
       "original": "1",
       "replacement": "2",
-      "class": "undecided",
-      "reason": ""
+      "class": "spec_question",
+      "reason": "真を引く割合を 1/2 から 1/3 にする。値の分布を定める仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:39f34e2f2f650575:0",
@@ -297,8 +297,8 @@
       "mutator": "ROR",
       "original": "minLen > maxLen",
       "replacement": "<> -> >=>",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "GEN-02: 最小と最大が同じ長さの列がエラーになる。E テストを足し、この変異を手で当てて落ちることを確かめた (2026-10-12)。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:1608e628c61b6a90:0",
@@ -307,8 +307,8 @@
       "mutator": "CVR",
       "original": "7",
       "replacement": "8",
-      "class": "undecided",
-      "reason": ""
+      "class": "spec_question",
+      "reason": "列を続ける割合 (8 回に 7 回)。長さの分布を定める仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:568d24bb63dbb2cb:0",
@@ -317,8 +317,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "GEN-03: 1 文字だけの alphabet がエラーになる。E テストを足し、この変異を手で当てて落ちることを確かめた (2026-10-12)。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:2018b46b403d91fe:0",
@@ -327,8 +327,8 @@
       "mutator": "ROR",
       "original": "a.len < b.len",
       "replacement": "<< -> <=>",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "この行に来るのは長さが違うときだけなので、< と <= は同じ。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:1928e6672ab638ba:0",
@@ -337,8 +337,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "SHR-05: 先頭の引きの違いを見なくなり、先頭の引きが単純にならない。E テストを足し、この変異を手で当てて落ちることを確かめた (2026-10-12)。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:d96f1caf295028d6:0",
@@ -347,8 +347,8 @@
       "mutator": "ROR",
       "original": "a[i] < b[i]",
       "replacement": "<< -> <=>",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "この行に来るのは値が違うときだけなので、< と <= は同じ。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:bd5703f4e10efbcc:0",
@@ -357,8 +357,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "SHR-02: 前の回の引きが 1 つ残る。156 行の SDL と同じテストで落ちる。E テストを足し、この変異を手で当てて落ちることを確かめた (2026-10-12)。"
     },
     {
       "fingerprint": "src/propcheck.nim:SDL:d36e87d80cd282b0:0",
@@ -367,8 +367,8 @@
       "mutator": "SDL",
       "original": "d.used.setLen(0)",
       "replacement": "discard",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "SHR-02: 前の回の引きが残り、2 回め以降に見つけた反例を引きの列から作り直せない。E テストを足し、この変異を手で当てて落ちることを確かめた (2026-10-12)。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:a7af08b6bd2f0f85:0",
@@ -377,8 +377,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "spec_question",
+      "reason": "縮小の試行が、上限より 1 回少なくなる。SHR-04 は「上限を超えない」としか定めていない。上限まで使うことを仕様にするか。"
     },
     {
       "fingerprint": "src/propcheck.nim:BLR:b8309a95375a2001:0",
@@ -387,8 +387,8 @@
       "mutator": "BLR",
       "original": "true",
       "replacement": "false",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "SHR-05: 取り込んだあとも「良くならなかった」と返し、探索がもう 1 周しない。E テストを足し、この変異を手で当てて落ちることを確かめた (2026-10-12)。 旗の代入は attempt の中の 1 か所にまとめた。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:4ca539cf73aae7d2:0",
@@ -397,8 +397,8 @@
       "mutator": "ROR",
       "original": "tries < config.maxShrinks",
       "replacement": "<< -> <=>",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "tries が上限に達したあとの周では、attempt がすぐ偽を返すので何も変わらず、次で終わる。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:11f647d0fa22e5a1:0",
@@ -407,8 +407,8 @@
       "mutator": "CVR",
       "original": "2",
       "replacement": "3",
-      "class": "undecided",
-      "reason": ""
+      "class": "spec_question",
+      "reason": "まとめて切る引きの数の並び (8・6・4・3・2・1)。探索の調整値で、仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:3050ba0a0920ab55:0",
@@ -417,8 +417,8 @@
       "mutator": "CVR",
       "original": "1",
       "replacement": "2",
-      "class": "undecided",
-      "reason": ""
+      "class": "spec_question",
+      "reason": "まとめて切る引きの数の並び (8・6・4・3・2・1)。探索の調整値で、仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:917e0591e6e44969:0",
@@ -427,8 +427,8 @@
       "mutator": "CVR",
       "original": "6",
       "replacement": "7",
-      "class": "undecided",
-      "reason": ""
+      "class": "spec_question",
+      "reason": "まとめて切る引きの数の並び (8・6・4・3・2・1)。探索の調整値で、仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:a2ab535e43cae28d:0",
@@ -437,8 +437,8 @@
       "mutator": "CVR",
       "original": "4",
       "replacement": "5",
-      "class": "undecided",
-      "reason": ""
+      "class": "spec_question",
+      "reason": "まとめて切る引きの数の並び (8・6・4・3・2・1)。探索の調整値で、仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:b24c6bcd535144dd:0",
@@ -447,8 +447,8 @@
       "mutator": "CVR",
       "original": "8",
       "replacement": "9",
-      "class": "undecided",
-      "reason": ""
+      "class": "spec_question",
+      "reason": "まとめて切る引きの数の並び (8・6・4・3・2・1)。探索の調整値で、仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:AOR:1ffca890fdd4b1fb:0",
@@ -457,8 +457,8 @@
       "mutator": "AOR",
       "original": "best.draws.len - size",
       "replacement": "<- -> +>",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "測定の時点では、187 行の条件が端を越えた位置を飛ばしていたので同じ結果になった。その条件は常に真と示せたので消した。いまはこの変異を手で当てると落ちる。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:5f0b083e845a225e:0",
@@ -467,8 +467,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "SHR-05: 186 行の ROR と同じ (先頭の位置を切らない)。E テストを足し、この変異を手で当てて落ちることを確かめた (2026-10-12)。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:4dafc1200d94287b:0",
@@ -477,8 +477,8 @@
       "mutator": "ROR",
       "original": "at >= 0",
       "replacement": "<>= -> >>",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "SHR-05: 先頭の位置を切らなくなり、先頭の要素を取り除けない。E テストを足し、この変異を手で当てて落ちることを確かめた (2026-10-12)。"
     },
     {
       "fingerprint": "src/propcheck.nim:AOR:d34114354dd644c9:0",
@@ -487,8 +487,8 @@
       "mutator": "AOR",
       "original": "at + size",
       "replacement": "<+ -> ->",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "at - size <= 長さ は常に真で、元の条件も常に真だった (at は長さより size だけ手前から始まり、下がるだけ)。条件ごと消した。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:d154af1a38399f4e:0",
@@ -497,8 +497,8 @@
       "mutator": "ROR",
       "original": "at + size <= best.draws.len",
       "replacement": "<<= -> <>",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "SHR-05: 末尾にちょうど届く位置を切らなくなる。元の条件は常に真と示せたので、条件ごと消した。次の測定では、この変異そのものが無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:LBR:51edc44cdfe073d8:0",
@@ -507,8 +507,8 @@
       "mutator": "LBR",
       "original": "0 ..< at",
       "replacement": "<..< -> ..>",
-      "class": "undecided",
-      "reason": ""
+      "class": "spec_question",
+      "reason": "切る範囲が 1 つ後ろにずれ、1 つ少なく切る。どの位置を切るかは探索の進め方で、仕様 ID が無い。"
     },
     {
       "fingerprint": "src/propcheck.nim:BLR:708f2de45b8b53ee:0",
@@ -517,8 +517,8 @@
       "mutator": "BLR",
       "original": "true",
       "replacement": "false",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "SHR-05: 切って良くなっても、もう 1 周しない。E テストを足し、この変異を手で当てて落ちることを確かめた (2026-10-12)。 旗の代入は attempt の中の 1 か所にまとめた。"
     },
     {
       "fingerprint": "src/propcheck.nim:AOR:5520765697cd39b1:0",
@@ -527,8 +527,8 @@
       "mutator": "AOR",
       "original": "best.draws.len - size",
       "replacement": "<- -> +>",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "測定の時点では、187 行の条件が守っていたので同じ結果になった。その条件を消したので、いまはこの変異を手で当てると落ちる。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:80b6bfe22c545ae0:0",
@@ -537,8 +537,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "SHR-05: 先頭の引きを小さくしなくなる。E テストを足し、この変異を手で当てて落ちることを確かめた (2026-10-12)。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:ddfacbaf4dda7940:0",
@@ -547,8 +547,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "SHR-05: 値が 1 の引きを 0 にしなくなる。E テストを足し、この変異を手で当てて落ちることを確かめた (2026-10-12)。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:a742df63087bc62b:0",
@@ -557,8 +557,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "0 でなく 1 を試しても、次の周で 2 の冪を引く段が 0 に届く。"
     },
     {
       "fingerprint": "src/propcheck.nim:BLR:46b6ccad74fdfb4f:0",
@@ -567,8 +567,8 @@
       "mutator": "BLR",
       "original": "true",
       "replacement": "false",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "SHR-05: 引きを 0 にして良くなっても、もう 1 周しない。E テストを足し、この変異を手で当てて落ちることを確かめた (2026-10-12)。 旗の代入は attempt の中の 1 か所にまとめた。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:ec3db5f6da37c177:0",
@@ -577,8 +577,8 @@
       "mutator": "CVR",
       "original": "63",
       "replacement": "64",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "1 shl 64 は 64 ビットではずらす数が 0 に丸められて 1 になり、「1 を引く」を先に 1 回試すだけ。同じ段を後でもう一度試すので結果は同じ。"
     },
     {
       "fingerprint": "src/propcheck.nim:LOR:cfd6af93d9b816a6:0",
@@ -587,8 +587,8 @@
       "mutator": "LOR",
       "original": "at < best.draws.len and best.draws[at] >= step",
       "replacement": "<and -> or>",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "or にすると step より小さい引きからも引き、桁あふれした大きな値は上限に丸められて、元より単純にならず捨てられる。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:100ccc8c23a474ac:0",
@@ -597,8 +597,8 @@
       "mutator": "ROR",
       "original": "best.draws[at] >= step",
       "replacement": "<>= -> >>",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "引きが step とちょうど同じときに引かないだけで、その先は 0 で、0 は 199 行で先に試している。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:153502dae296ed6c:0",
@@ -607,8 +607,8 @@
       "mutator": "ROR",
       "original": "at < best.draws.len",
       "replacement": "<< -> <=>",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "at が長さに届くことは無い: 同じ引きの列の手前の部分からは同じ値ができ、at 番めの引きは必ず使われる。"
     },
     {
       "fingerprint": "src/propcheck.nim:BLR:46b6ccad74fdfb4f:1",
@@ -617,8 +617,8 @@
       "mutator": "BLR",
       "original": "true",
       "replacement": "false",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "SHR-05: 2 の冪を引いて良くなっても、もう 1 周しない。E テストを足し、この変異を手で当てて落ちることを確かめた (2026-10-12)。 旗の代入は attempt の中の 1 か所にまとめた。"
     },
     {
       "fingerprint": "src/propcheck.nim:RVR:f3bda00b469208d1:0",
@@ -627,8 +627,8 @@
       "mutator": "RVR",
       "original": "return \"\"",
       "replacement": "<return default>",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "string の default は空文字列で、return \"\" と同じ。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:e1cc303f1b451029:0",
@@ -637,8 +637,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "上げた例外の文字列は「型: 文言」で 2 文字以上か、空かなので、> 0 と > 1 は同じ。"
     },
     {
       "fingerprint": "src/propcheck.nim:ROR:aa1cde63143cb5ab:0",
@@ -647,8 +647,8 @@
       "mutator": "ROR",
       "original": "raisedA.len > 0",
       "replacement": "<> -> >=>",
-      "class": "undecided",
-      "reason": ""
+      "class": "test_owed",
+      "reason": "DIF-02: 先のほうが値を返したとき、理由が「値を返した」でなく「例外を上げた」になる。E テストを足し、この変異を手で当てて落ちることを確かめた (2026-10-12)。"
     },
     {
       "fingerprint": "src/propcheck.nim:CVR:cba5b73b543fbfa9:0",
@@ -657,8 +657,8 @@
       "mutator": "CVR",
       "original": "0",
       "replacement": "1",
-      "class": "undecided",
-      "reason": ""
+      "class": "equivalent",
+      "reason": "247 行の CVR と同じ。"
     }
   ]
 }

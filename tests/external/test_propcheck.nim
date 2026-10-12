@@ -239,6 +239,7 @@ suite "reporting, and telling two implementations apart":
     let swapped = distinguish(intIn(0, 1000), unchecked, checked)
     check swapped.counterexample.value == 5
     check "five or more" in swapped.counterexample.reason
+    check "the first gave 5" in swapped.counterexample.reason
 
   # SPEC: DIF-02
   test "Given two functions that raise errors of another type or with another message, When told apart, Then they differ":
@@ -256,3 +257,109 @@ suite "reporting, and telling two implementations apart":
     check not byMessage.passed
     check "bad" in byMessage.counterexample.reason
     check "worse" in byMessage.counterexample.reason
+
+suite "what the first mutation run left standing (2026-10-12)":
+  proc drawn(most: uint64): Gen[int] =
+    ## One draw, as it is: the smallest generator there is.
+    proc(d: var Draws): int {.raises: [].} = int(d.drawUpTo(most))
+
+  proc untilZero(): Gen[seq[int]] =
+    ## Up to five draws of 1..20, ended by a draw of 0: one draw an element.
+    proc(d: var Draws): seq[int] {.raises: [].} =
+      for i in 0 ..< 5:
+        let v = int(d.drawUpTo(20))
+        if v == 0: break
+        result.add v
+
+  # SPEC: GEN-01
+  test "Given ranges that lie below 0, or reach further on one side of it, When values are made, Then every one is in the range":
+    for (lo, hi) in [(-20, -5), (-10, 3), (-3, 10), (-1000, -999)]:
+      for x in samples(intIn(lo, hi), 400):
+        check x >= lo
+        check x <= hi
+
+  # SPEC: GEN-01
+  test "Given every integer there is, When the simplest is asked for, Then it is 0":
+    check simplest(intIn(low(int), high(int))) == 0
+    check simplest(intIn(low(int) + 1, high(int))) == 0
+
+  # SPEC: GEN-02
+  test "Given the least and the most lengths are the same, When sequences are made, Then each has that length":
+    for s in samples(seqOf(intIn(0, 9), 3, 3), 50):
+      check s.len == 3
+
+  # SPEC: GEN-03
+  test "Given an alphabet of one character, When strings are made, Then they are of that character":
+    check simplest(stringOf("a", 2, 2)) == "aa"
+
+  # SPEC: SHR-02
+  test "Given a counterexample found after other values and no shrinking, When its draws are replayed, Then they make that value":
+    for seed in 0'i64 ..< 20:
+      let outcome = check(intIn(0, 1000), proc(x: int): bool {.raises: [CatchableError].} = x < 900,
+                          CheckConfig(runs: 200, seed: seed, maxShrinks: 0))
+      if not outcome.passed and outcome.runs > 1:
+        check replay(intIn(0, 1000), outcome.counterexample.draws) == outcome.counterexample.value
+
+  # SPEC: SHR-05
+  test "Given a value of two draws of which only the second matters, When shrunk, Then the first draw is the simplest too":
+    var firstWasNotSimplest = 0
+    for seed in 0'i64 ..< 20:
+      let outcome = check(pair(drawn(1), drawn(1000)),
+                          proc(x: (int, int)): bool {.raises: [CatchableError].} = x[1] < 10,
+                          CheckConfig(runs: 100, seed: seed, maxShrinks: 2000))
+      check not outcome.passed
+      check outcome.counterexample.value == (0, 10)
+      let unshrunk = check(pair(drawn(1), drawn(1000)),
+                           proc(x: (int, int)): bool {.raises: [CatchableError].} = x[1] < 10,
+                           CheckConfig(runs: 100, seed: seed, maxShrinks: 0))
+      if unshrunk.counterexample.value[0] == 1: inc firstWasNotSimplest
+    check firstWasNotSimplest > 0      # or the loop above showed nothing
+
+  # SPEC: SHR-05
+  test "Given a list whose offending element is not the first, When shrunk, Then the elements before it are taken away":
+    var offenderWasNotFirst = 0
+    for seed in 0'i64 ..< 40:
+      let property = proc(s: seq[int]): bool {.raises: [CatchableError].} = 7 notin s
+      let outcome = check(untilZero(), property, CheckConfig(runs: 300, seed: seed, maxShrinks: 2000))
+      if outcome.passed: continue
+      check outcome.counterexample.value == @[7]
+      let unshrunk = check(untilZero(), property, CheckConfig(runs: 300, seed: seed, maxShrinks: 0))
+      if unshrunk.counterexample.value.len > 1 and unshrunk.counterexample.value[0] != 7:
+        inc offenderWasNotFirst
+    check offenderWasNotFirst > 0
+
+  # SPEC: SHR-05
+  test "Given a counterexample from which an element can go only after the values are made small, When shrunk, Then it goes":
+    # [a, b] breaks the property while a > b; [0] breaks it too, and nothing
+    # else of one element does. So [a, b] must first become [1, 0], and only
+    # then can its first element be taken away.
+    let property = proc(s: seq[int]): bool {.raises: [CatchableError].} =
+      not ((s.len == 2 and s[0] > s[1]) or s == @[0])
+    var reached = 0
+    for seed in 0'i64 ..< 40:
+      let outcome = check(seqOf(intIn(0, 50), 0, 2), property,
+                          CheckConfig(runs: 300, seed: seed, maxShrinks: 5000))
+      if outcome.passed: continue
+      check outcome.counterexample.value == @[0]
+      let unshrunk = check(seqOf(intIn(0, 50), 0, 2), property,
+                           CheckConfig(runs: 300, seed: seed, maxShrinks: 0))
+      if unshrunk.counterexample.value.len == 2: inc reached
+    check reached > 0
+
+  # SPEC: SHR-05
+  test "Given a list from which the first element can go only once the second is as small as it gets, When shrunk, Then the search goes round again and takes it away":
+    # [a, b] breaks the property while a > b, and so does [1]; no other list
+    # of one element does. From [a, b] with b above 1 nothing can be cut:
+    # first b has to come down to 1, and only then does [1] remain after a cut.
+    let property = proc(s: seq[int]): bool {.raises: [CatchableError].} =
+      not ((s.len == 2 and s[0] > s[1]) or s == @[1])
+    var neededAnotherRound = 0
+    for seed in 0'i64 ..< 40:
+      let outcome = check(untilZero(), property, CheckConfig(runs: 300, seed: seed, maxShrinks: 5000))
+      if outcome.passed: continue
+      check outcome.counterexample.value == @[1]
+      let unshrunk = check(untilZero(), property, CheckConfig(runs: 300, seed: seed, maxShrinks: 0))
+      if unshrunk.counterexample.value.len == 2 and unshrunk.counterexample.value[1] > 1:
+        inc neededAnotherRound
+    check neededAnotherRound > 0
+

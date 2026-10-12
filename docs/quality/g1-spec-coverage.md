@@ -7,9 +7,9 @@ and every `# SPEC: ID` tag under `tests/**`. Do not hand-edit -- re-run
 
 | ID | test files (count) |
 |---|---|
-| GEN-01 | tests/external/test_propcheck.nim (4) |
-| GEN-02 | tests/external/test_propcheck.nim (2) |
-| GEN-03 | tests/external/test_propcheck.nim (2) |
+| GEN-01 | tests/external/test_propcheck.nim (6) |
+| GEN-02 | tests/external/test_propcheck.nim (3) |
+| GEN-03 | tests/external/test_propcheck.nim (3) |
 | GEN-04 | tests/external/test_propcheck.nim (1) |
 | GEN-05 | tests/external/test_propcheck.nim (1) |
 | RUN-01 | tests/external/test_propcheck.nim (1) |
@@ -17,10 +17,10 @@ and every `# SPEC: ID` tag under `tests/**`. Do not hand-edit -- re-run
 | RUN-03 | tests/external/test_propcheck.nim (1) |
 | RUN-04 | tests/external/test_propcheck.nim (1) |
 | SHR-01 | tests/external/test_propcheck.nim (4) |
-| SHR-02 | tests/external/test_propcheck.nim (1) |
+| SHR-02 | tests/external/test_propcheck.nim (2) |
 | SHR-03 | tests/external/test_propcheck.nim (1) |
 | SHR-04 | tests/external/test_propcheck.nim (1) |
-| SHR-05 | tests/external/test_propcheck.nim (1) |
+| SHR-05 | tests/external/test_propcheck.nim (5) |
 | RPT-01 | tests/external/test_propcheck.nim (1) |
 | DIF-01 | tests/external/test_propcheck.nim (1) |
 | DIF-02 | tests/external/test_propcheck.nim (3) |

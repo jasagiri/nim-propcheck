@@ -162,8 +162,10 @@ proc checkBy[T](gen: Gen[T]; verdict: Verdict[T]; config: CheckConfig): CheckRes
     # A counterexample. Make its draws simpler while it stays one.
     var best = Counterexample[T](value: value, reason: reason, draws: d.used)
     var tries = 0
+    var improved = true
     proc attempt(candidate: seq[uint64]): bool =
-      ## Whether `candidate` makes a simpler counterexample; then it is the best.
+      ## Whether `candidate` makes a simpler counterexample; then it is the
+      ## best, and the search goes round once more.
       if tries >= config.maxShrinks: return false
       var replayed = Draws(replaying: true, replayed: candidate)
       let made = gen(replayed)
@@ -175,18 +177,18 @@ proc checkBy[T](gen: Gen[T]; verdict: Verdict[T]; config: CheckConfig): CheckRes
       best.reason = why
       best.draws = replayed.used
       inc best.shrinks
+      improved = true
       true
 
-    var improved = true
     while improved and tries < config.maxShrinks:
       improved = false
       # Cut runs of draws away: elements of a sequence, mostly.
       for size in [8, 6, 4, 3, 2, 1]:
         var at = best.draws.len - size
         while at >= 0:
-          if at + size <= best.draws.len and
-             attempt(best.draws[0 ..< at] & best.draws[at + size .. ^1]):
-            improved = true
+          # `at + size` never passes the end: `at` starts `size` short of it,
+          # only goes down, and is pulled back after a cut.
+          if attempt(best.draws[0 ..< at] & best.draws[at + size .. ^1]):
             at = min(at, best.draws.len - size)
           else:
             dec at
@@ -197,14 +199,14 @@ proc checkBy[T](gen: Gen[T]; verdict: Verdict[T]; config: CheckConfig): CheckRes
         if best.draws[at] != 0:
           var candidate = best.draws
           candidate[at] = 0
-          if attempt(candidate): improved = true
-          else:
+          if not attempt(candidate):
             for power in countdown(63, 0):
               let step = 1'u64 shl power
               if at < best.draws.len and best.draws[at] >= step:
                 candidate = best.draws
                 candidate[at] -= step
-                if attempt(candidate): improved = true
+                # Whether it took is in `improved`; the next power is tried either way.
+                discard attempt(candidate)
         inc at
     result.passed = false
     result.counterexample = best
