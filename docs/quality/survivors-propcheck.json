@@ -1,0 +1,664 @@
+{
+  "survivors": [
+    {
+      "fingerprint": "src/propcheck.nim:CVR:019f44b98087e213:0",
+      "file": "src/propcheck.nim",
+      "line": 47,
+      "mutator": "CVR",
+      "original": "100",
+      "replacement": "101",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:79170c51acd78593:0",
+      "file": "src/propcheck.nim",
+      "line": 47,
+      "mutator": "CVR",
+      "original": "2000",
+      "replacement": "2001",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:b69fc67799197c25:0",
+      "file": "src/propcheck.nim",
+      "line": 47,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:bb875c27bbe4b0f3:0",
+      "file": "src/propcheck.nim",
+      "line": 72,
+      "mutator": "CVR",
+      "original": "15",
+      "replacement": "16",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:a0d4e70a04f2bfb5:0",
+      "file": "src/propcheck.nim",
+      "line": 81,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:a0d4e70a04f2bfb5:1",
+      "file": "src/propcheck.nim",
+      "line": 81,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:a0d4e70a04f2bfb5:2",
+      "file": "src/propcheck.nim",
+      "line": 81,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:LOR:ffa79204f897d2fe:0",
+      "file": "src/propcheck.nim",
+      "line": 81,
+      "mutator": "LOR",
+      "original": "hi >= 0 and lo <= 0",
+      "replacement": "<and -> or>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:ROR:b0f73d2786c634be:0",
+      "file": "src/propcheck.nim",
+      "line": 81,
+      "mutator": "ROR",
+      "original": "hi >= 0",
+      "replacement": "<>= -> >>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:482408172e89a445:0",
+      "file": "src/propcheck.nim",
+      "line": 82,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:482408172e89a445:1",
+      "file": "src/propcheck.nim",
+      "line": 82,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:482408172e89a445:3",
+      "file": "src/propcheck.nim",
+      "line": 82,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:LOR:1172ca1b7cfdde62:0",
+      "file": "src/propcheck.nim",
+      "line": 82,
+      "mutator": "LOR",
+      "original": "hi >= 0 and lo <= 0",
+      "replacement": "<and -> or>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:ROR:5a09ce0d3e34220a:0",
+      "file": "src/propcheck.nim",
+      "line": 82,
+      "mutator": "ROR",
+      "original": "lo <= 0",
+      "replacement": "<<= -> <>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:ROR:a1d74adfcebaaba2:0",
+      "file": "src/propcheck.nim",
+      "line": 82,
+      "mutator": "ROR",
+      "original": "hi >= 0",
+      "replacement": "<>= -> >>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:0208c75a22b86885:0",
+      "file": "src/propcheck.nim",
+      "line": 86,
+      "mutator": "CVR",
+      "original": "3",
+      "replacement": "4",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:290467414678cf11:0",
+      "file": "src/propcheck.nim",
+      "line": 86,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:ROR:b8e8dd5aa349973d:0",
+      "file": "src/propcheck.nim",
+      "line": 86,
+      "mutator": "ROR",
+      "original": "d.drawUpTo(3) == 0",
+      "replacement": "<== -> !=>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:ROR:a5c0b4075e489d08:0",
+      "file": "src/propcheck.nim",
+      "line": 88,
+      "mutator": "ROR",
+      "original": "lo > 0",
+      "replacement": "<> -> >=>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:AOR:976c98e3301713f1:0",
+      "file": "src/propcheck.nim",
+      "line": 89,
+      "mutator": "AOR",
+      "original": "cast[uint64](hi) - offset",
+      "replacement": "<- -> +>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:d8484a5a691fa2c1:0",
+      "file": "src/propcheck.nim",
+      "line": 89,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:ROR:fa6842052c64b614:0",
+      "file": "src/propcheck.nim",
+      "line": 89,
+      "mutator": "ROR",
+      "original": "hi < 0",
+      "replacement": "<< -> <=>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:db246f754dd431f7:1",
+      "file": "src/propcheck.nim",
+      "line": 90,
+      "mutator": "CVR",
+      "original": "2",
+      "replacement": "3",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:ROR:fcb80d0569f6b263:0",
+      "file": "src/propcheck.nim",
+      "line": 90,
+      "mutator": "ROR",
+      "original": "both <= high(uint64) div 2",
+      "replacement": "<<= -> <>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:ROR:c2fe8ae5631c4ef9:0",
+      "file": "src/propcheck.nim",
+      "line": 92,
+      "mutator": "ROR",
+      "original": "offset mod 2 == 1",
+      "replacement": "<== -> !=>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:AOR:f46d4181bff8252f:0",
+      "file": "src/propcheck.nim",
+      "line": 94,
+      "mutator": "AOR",
+      "original": "0'u64 - size",
+      "replacement": "<- -> +>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:5bfc6c4bf55566e4:0",
+      "file": "src/propcheck.nim",
+      "line": 94,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:ROR:20b5aabb2747bf3e:0",
+      "file": "src/propcheck.nim",
+      "line": 94,
+      "mutator": "ROR",
+      "original": "above > below",
+      "replacement": "<> -> >=>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:268a5dd0a42b6a8e:0",
+      "file": "src/propcheck.nim",
+      "line": 98,
+      "mutator": "CVR",
+      "original": "1",
+      "replacement": "2",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:ROR:39f34e2f2f650575:0",
+      "file": "src/propcheck.nim",
+      "line": 109,
+      "mutator": "ROR",
+      "original": "minLen > maxLen",
+      "replacement": "<> -> >=>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:1608e628c61b6a90:0",
+      "file": "src/propcheck.nim",
+      "line": 115,
+      "mutator": "CVR",
+      "original": "7",
+      "replacement": "8",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:568d24bb63dbb2cb:0",
+      "file": "src/propcheck.nim",
+      "line": 121,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:ROR:2018b46b403d91fe:0",
+      "file": "src/propcheck.nim",
+      "line": 144,
+      "mutator": "ROR",
+      "original": "a.len < b.len",
+      "replacement": "<< -> <=>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:1928e6672ab638ba:0",
+      "file": "src/propcheck.nim",
+      "line": 145,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:ROR:d96f1caf295028d6:0",
+      "file": "src/propcheck.nim",
+      "line": 146,
+      "mutator": "ROR",
+      "original": "a[i] < b[i]",
+      "replacement": "<< -> <=>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:bd5703f4e10efbcc:0",
+      "file": "src/propcheck.nim",
+      "line": 156,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:SDL:d36e87d80cd282b0:0",
+      "file": "src/propcheck.nim",
+      "line": 156,
+      "mutator": "SDL",
+      "original": "d.used.setLen(0)",
+      "replacement": "discard",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:a7af08b6bd2f0f85:0",
+      "file": "src/propcheck.nim",
+      "line": 164,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:BLR:b8309a95375a2001:0",
+      "file": "src/propcheck.nim",
+      "line": 178,
+      "mutator": "BLR",
+      "original": "true",
+      "replacement": "false",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:ROR:4ca539cf73aae7d2:0",
+      "file": "src/propcheck.nim",
+      "line": 181,
+      "mutator": "ROR",
+      "original": "tries < config.maxShrinks",
+      "replacement": "<< -> <=>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:11f647d0fa22e5a1:0",
+      "file": "src/propcheck.nim",
+      "line": 184,
+      "mutator": "CVR",
+      "original": "2",
+      "replacement": "3",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:3050ba0a0920ab55:0",
+      "file": "src/propcheck.nim",
+      "line": 184,
+      "mutator": "CVR",
+      "original": "1",
+      "replacement": "2",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:917e0591e6e44969:0",
+      "file": "src/propcheck.nim",
+      "line": 184,
+      "mutator": "CVR",
+      "original": "6",
+      "replacement": "7",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:a2ab535e43cae28d:0",
+      "file": "src/propcheck.nim",
+      "line": 184,
+      "mutator": "CVR",
+      "original": "4",
+      "replacement": "5",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:b24c6bcd535144dd:0",
+      "file": "src/propcheck.nim",
+      "line": 184,
+      "mutator": "CVR",
+      "original": "8",
+      "replacement": "9",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:AOR:1ffca890fdd4b1fb:0",
+      "file": "src/propcheck.nim",
+      "line": 185,
+      "mutator": "AOR",
+      "original": "best.draws.len - size",
+      "replacement": "<- -> +>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:5f0b083e845a225e:0",
+      "file": "src/propcheck.nim",
+      "line": 186,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:ROR:4dafc1200d94287b:0",
+      "file": "src/propcheck.nim",
+      "line": 186,
+      "mutator": "ROR",
+      "original": "at >= 0",
+      "replacement": "<>= -> >>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:AOR:d34114354dd644c9:0",
+      "file": "src/propcheck.nim",
+      "line": 187,
+      "mutator": "AOR",
+      "original": "at + size",
+      "replacement": "<+ -> ->",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:ROR:d154af1a38399f4e:0",
+      "file": "src/propcheck.nim",
+      "line": 187,
+      "mutator": "ROR",
+      "original": "at + size <= best.draws.len",
+      "replacement": "<<= -> <>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:LBR:51edc44cdfe073d8:0",
+      "file": "src/propcheck.nim",
+      "line": 188,
+      "mutator": "LBR",
+      "original": "0 ..< at",
+      "replacement": "<..< -> ..>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:BLR:708f2de45b8b53ee:0",
+      "file": "src/propcheck.nim",
+      "line": 189,
+      "mutator": "BLR",
+      "original": "true",
+      "replacement": "false",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:AOR:5520765697cd39b1:0",
+      "file": "src/propcheck.nim",
+      "line": 190,
+      "mutator": "AOR",
+      "original": "best.draws.len - size",
+      "replacement": "<- -> +>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:80b6bfe22c545ae0:0",
+      "file": "src/propcheck.nim",
+      "line": 195,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:ddfacbaf4dda7940:0",
+      "file": "src/propcheck.nim",
+      "line": 197,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:a742df63087bc62b:0",
+      "file": "src/propcheck.nim",
+      "line": 199,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:BLR:46b6ccad74fdfb4f:0",
+      "file": "src/propcheck.nim",
+      "line": 200,
+      "mutator": "BLR",
+      "original": "true",
+      "replacement": "false",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:ec3db5f6da37c177:0",
+      "file": "src/propcheck.nim",
+      "line": 202,
+      "mutator": "CVR",
+      "original": "63",
+      "replacement": "64",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:LOR:cfd6af93d9b816a6:0",
+      "file": "src/propcheck.nim",
+      "line": 204,
+      "mutator": "LOR",
+      "original": "at < best.draws.len and best.draws[at] >= step",
+      "replacement": "<and -> or>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:ROR:100ccc8c23a474ac:0",
+      "file": "src/propcheck.nim",
+      "line": 204,
+      "mutator": "ROR",
+      "original": "best.draws[at] >= step",
+      "replacement": "<>= -> >>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:ROR:153502dae296ed6c:0",
+      "file": "src/propcheck.nim",
+      "line": 204,
+      "mutator": "ROR",
+      "original": "at < best.draws.len",
+      "replacement": "<< -> <=>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:BLR:46b6ccad74fdfb4f:1",
+      "file": "src/propcheck.nim",
+      "line": 207,
+      "mutator": "BLR",
+      "original": "true",
+      "replacement": "false",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:RVR:f3bda00b469208d1:0",
+      "file": "src/propcheck.nim",
+      "line": 246,
+      "mutator": "RVR",
+      "original": "return \"\"",
+      "replacement": "<return default>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:e1cc303f1b451029:0",
+      "file": "src/propcheck.nim",
+      "line": 247,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:ROR:aa1cde63143cb5ab:0",
+      "file": "src/propcheck.nim",
+      "line": 247,
+      "mutator": "ROR",
+      "original": "raisedA.len > 0",
+      "replacement": "<> -> >=>",
+      "class": "undecided",
+      "reason": ""
+    },
+    {
+      "fingerprint": "src/propcheck.nim:CVR:cba5b73b543fbfa9:0",
+      "file": "src/propcheck.nim",
+      "line": 248,
+      "mutator": "CVR",
+      "original": "0",
+      "replacement": "1",
+      "class": "undecided",
+      "reason": ""
+    }
+  ]
+}
